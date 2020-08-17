@@ -47,7 +47,7 @@ public class AppConfig {
         return properties;
     }
 
-    //для создания соединения с БД
+    //создание соединения с БД
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -70,7 +70,7 @@ public class AppConfig {
         return em;
     }
 
-    //для настройки менеджера транзакций
+    //настройки менеджера транзакций
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
