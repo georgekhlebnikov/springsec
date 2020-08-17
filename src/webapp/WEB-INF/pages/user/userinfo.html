@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+        <h2>User Info:</h2>
+
+        <table border="1">
+
+            <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>password</b></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="user : ${userData}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.password}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    <p><a href="/index">Start Page</a></p>
+    <br><br>
+    <p><a href="/logout">Logout</a></p>
+
+
+</body>
+</html>

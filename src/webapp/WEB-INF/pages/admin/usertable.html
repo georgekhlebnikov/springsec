@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of all Users</title>
+</head>
+<body>
+
+
+<div th:switch="${userData}">
+    <h2 th:case="null">No users yet!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table border="1">
+
+            <thead>
+            <tr>
+                <th><b>ID</b></th>
+                <th><b>Name</b></th>
+                <th><b>password</b></th>
+                <th><b>Roles</b></th>
+                <th><b>Edit</b></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="user : ${userData}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.roleSet}"></td>
+                <td><a th:href="@{/admin/edituser/{id}(id=${user.id})}">Edit</a></td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <p><a href="/admin/signup">Add a New User</a></p>
+    <p><a href="/index">Start Page</a></p>
+    <br><br>
+    <p><a href="/logout">LogOut</a></p>
+</div>
+
+
+</body>
+</html>
